@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        button {
+            width: 50px;
+            height: 50px;
+            padding: 0px;
+        }
+        .nextto {
+            display: inline;
+        }
+        #main {
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <div id="main">
+            <div>
+                <button id="1">&nbsp;</button>
+                <button id="2">&nbsp;</button>
+                <button id="3">&nbsp;</button>
+            </div>
+            <div>
+                <button id="4">&nbsp;</button>
+                <button id="5">&nbsp;</button>
+                <button id="6">&nbsp;</button>
+            </div>
+            <div>
+                <button id="7">&nbsp;</button>
+                <button id="8">&nbsp;</button>
+                <button id="9">&nbsp;</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        let button1 = document.getElementById("1");
+        let button2 = document.getElementById("2");
+        let button3 = document.getElementById("3");
+        let button4 = document.getElementById("4")
+        let button5 = document.getElementById("5")
+        let button6 = document.getElementById("6")
+        let button7 = document.getElementById("7")
+        let button8 = document.getElementById("8")
+        let button9 = document.getElementById("9")
+        let player_one = true;
+        //first button
+        function clicked_1() {
+            if (player_one) {
+                button1.style.backgroundColor = "red";
+            } else {
+            button1.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button1.removeEventListener("click", clicked_1)
+                if (button1.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button1.addEventListener("click", clicked_1);
+        //second button
+        function clicked_2() {
+            if (player_one) {
+                button2.style.backgroundColor = "red";
+            } else {
+            button2.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button2.removeEventListener("click", clicked_2)
+                if (button2.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button2.addEventListener("click", clicked_2);
+        //third button
+        function clicked_3() {
+            if (player_one) {
+                button3.style.backgroundColor = "red";
+            } else {
+            button3.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button3.removeEventListener("click", clicked_3)
+                if (button3.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button3.addEventListener("click", clicked_3);
+        //fourth button
+        function clicked_4() {
+            if (player_one) {
+                button4.style.backgroundColor = "red";
+            } else {
+            button4.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button4.removeEventListener("click", clicked_4)
+                if (button4.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button4.addEventListener("click", clicked_4);
+        //fifth button
+        function clicked_5() {
+            if (player_one) {
+                button5.style.backgroundColor = "red";
+            } else {
+            button5.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button5.removeEventListener("click", clicked_5)
+                if (button5.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button5.addEventListener("click", clicked_5);
+        //sixth button
+        function clicked_6() {
+            if (player_one) {
+                button6.style.backgroundColor = "red";
+            } else {
+            button6.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button6.removeEventListener("click", clicked_6)
+                if (button6.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button6.addEventListener("click", clicked_6);
+        //seventh button
+        function clicked_7() {
+            if (player_one) {
+                button7.style.backgroundColor = "red";
+            } else {
+            button7.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button7.removeEventListener("click", clicked_7)
+                if (button7.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button7.addEventListener("click", clicked_7);
+        //eighth button
+        function clicked_8() {
+            if (player_one) {
+                button8.style.backgroundColor = "red";
+            } else {
+            button8.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button8.removeEventListener("click", clicked_8)
+                if (button8.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button8.addEventListener("click", clicked_8);
+        //ninth button
+        function clicked_9() {
+            if (player_one) {
+                button9.style.backgroundColor = "red";
+            } else {
+            button9.style.backgroundColor = "blue";
+            }
+            player_one = !player_one;
+            button9.removeEventListener("click", clicked_9)
+                if (button9.style.backgroundColor == "blue") {
+                    console.log("blue");
+                } else {
+                    console.log("red");
+                }
+                deciding();
+                deciding1();
+        }
+        button9.addEventListener("click", clicked_9);
+        //deciding winner
+        function deciding() {
+            if (button1.style.backgroundColor == "red" && button1.style.backgroundColor == button2.style.backgroundColor && button3.style.backgroundColor == button1.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+            if (button4.style.backgroundColor == "red" && button4.style.backgroundColor == button5.style.backgroundColor && button4.style.backgroundColor == button6.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+            if (button7.style.backgroundColor == "red" && button7.style.backgroundColor == button8.style.backgroundColor && button7.style.backgroundColor == button9.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+            if (button1.style.backgroundColor == "red" && button1.style.backgroundColor == button4.style.backgroundColor && button7.style.backgroundColor == button1.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+            if (button2.style.backgroundColor == "red" && button5.style.backgroundColor == button2.style.backgroundColor && button2.style.backgroundColor == button8.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+            if (button3.style.backgroundColor == "red" && button3.style.backgroundColor == button6.style.backgroundColor && button3.style.backgroundColor == button9.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+            if (button1.style.backgroundColor == "red" && button1.style.backgroundColor == button5.style.backgroundColor && button9.style.backgroundColor == button1.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+            if (button3.style.backgroundColor == "red" && button3.style.backgroundColor == button5.style.backgroundColor && button3.style.backgroundColor == button7.style.backgroundColor) {
+                alert("player 1 wins!");
+            }
+        }
+        function deciding1() {
+            if (button1.style.backgroundColor == "blue" && button1.style.backgroundColor == button2.style.backgroundColor && button3.style.backgroundColor == button1.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+            if (button4.style.backgroundColor == "blue" && button4.style.backgroundColor == button5.style.backgroundColor && button4.style.backgroundColor == button6.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+            if (button7.style.backgroundColor == "blue" && button7.style.backgroundColor == button8.style.backgroundColor && button7.style.backgroundColor == button9.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+            if (button1.style.backgroundColor == "blue" && button1.style.backgroundColor == button4.style.backgroundColor && button7.style.backgroundColor == button1.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+            if (button2.style.backgroundColor == "blue" && button5.style.backgroundColor == button2.style.backgroundColor && button2.style.backgroundColor == button8.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+            if (button3.style.backgroundColor == "blue" && button3.style.backgroundColor == button6.style.backgroundColor && button3.style.backgroundColor == button9.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+            if (button1.style.backgroundColor == "blue" && button1.style.backgroundColor == button5.style.backgroundColor && button9.style.backgroundColor == button1.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+            if (button3.style.backgroundColor == "blue" && button3.style.backgroundColor == button5.style.backgroundColor && button3.style.backgroundColor == button7.style.backgroundColor) {
+                alert("player 2 wins!");
+            }
+        }
+    </script>
+</html>

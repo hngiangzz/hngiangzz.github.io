@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #welcome {
+        font-size: 36px;
+        color: purple;
+        background-image: url("https://i.pinimg.com/originals/de/7f/3e/de7f3e29dbccdf50bc3a9118db5eb991.gif");
+        border: 4px dashed #5CCFF2;
+        margin: 50px;
+        padding: 50px;
+        text-align: center;
+    }
+    #explain {
+        font-size: 15px;
+        color: purple;
+        text-align: center;
+    }
+    /*
+    #hello {
+        background-image: url("https://static.wikia.nocookie.net/459d3c11-125b-4459-821d-7509c6f0edb1/scale-to-width/755");
+        width: 350px;
+        height: 150px;
+        padding: 150px;
+        display: inline;
+    }
+        */
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #hi{
+        text-align: center;
+    }
+    body {
+        background-image: url("https://media.tenor.com/kKmvIr30vQYAAAAj/stars-changing-colors.gif"), url("https://i.pinimg.com/originals/79/50/0c/79500cbc38fa4bd5f5b7c5d640a5cb35.gif");
+        background-color: #f4f8fb;
+        background-size: center;
+    }
+    button {
+        width: 50px;
+        height: 50px;
+        padding: 0px;
+        transition: background .2s linear, transform .2s linear;
+        }
+    button:hover {
+        background: white;
+        transition: background .2s linear, transform .2s linear;
+        transform: scale(1.2) rotate(0deg);
+    }
+    button:active {
+        background: tomato;
+    }
+    
+</style>
+<head>
+    <title>Connect-Four</title>
+</head>
+<body>
+    <h1 id="welcome">Welcome to Connect Four!</h1>
+    <h1 id="explain">Player One is yellow and Player Two is pink</h1>
+    <div id="board">
+    </div>
+    <h1 id="explain">Connect four blocks of your color and you win!</h1>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+<script>
+    let html = '';
+    let id_counter = 0;
+    let header = document.getElementById("welcome");
+    for(let i = 0; i < 6; i++) {
+        html +=
+
+        `
+        <div class="container">
+            <button id="b${id_counter + 0}">&nbsp</button>
+            <button id="b${id_counter + 1}">&nbsp</button>
+            <button id="b${id_counter + 2}">&nbsp</button>
+            <button id="b${id_counter + 3}">&nbsp</button>
+            <button id="b${id_counter + 4}">&nbsp</button>
+            <button id="b${id_counter + 5}">&nbsp</button>
+            <button id="b${id_counter + 6}">&nbsp</button>
+        </div>
+        `;
+        id_counter += 7;
+    }
+    board.innerHTML = html;
+
+    let player_one = true;
+
+    function make_event_handler(button, idx, buttons) {
+        let f = () => {
+            let column_idx = idx % 7;
+            let column_buttons = buttons.filter((elements, idx) => {
+                return idx % 7 === column_idx;
+            });
+            column_buttons.reverse();
+            let i = 0;
+            while (i < column_buttons.length) {
+                if (column_buttons[i].style.backgroundColor === "") {
+                    if (player_one) {
+                        column_buttons[i].style.backgroundColor = "rgb(242, 231, 92)";
+                        break;
+                    } else {
+                        column_buttons[i].style.backgroundColor= "rgb(242, 92, 136)";
+                        break;
+                    }
+                }
+                i++;
+                
+            }
+            idx = (5 - i) * 7 + column_idx;
+            console.log(idx);
+            i = 0;
+            let inarow = 0;
+            /*player one yellow player two pink*/
+            let color_to_check = 'rgb(242, 92, 136)';
+            if (player_one) {
+                color_to_check = 'rgb(242, 231, 92)';
+            }
+            /* checking winner in column */
+            while(i < column_buttons.length) {
+                console.log("A",column_buttons[i].style.backgroundColor);
+                console.log("B",color_to_check);
+                if (column_buttons[i].style.backgroundColor === color_to_check) {
+                    inarow += 1;
+                    if (inarow === 4) {
+                        if (player_one) {
+                            header.innerHTML = "Player 1 won!";
+                            confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                            });
+                            break;
+                        } else {
+                            header.innerHTML = "Player 2 won!";
+                            confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                            });
+                            break;
+                        }
+                    }
+                } else {
+                    inarow = 0;
+                }
+                i++;
+            }
+            let row_idx = Math.floor(idx/7);
+            let row_buttons = buttons.filter((elements, idx) => {
+                return Math.floor(idx/7) === row_idx;
+            });
+            /* checking winner in row */
+            console.log(row_buttons);
+
+            i = 0;
+            inarow = 0;
+            while(i < row_buttons.length){
+                if (row_buttons[i].style.backgroundColor === color_to_check) {
+                    inarow += 1;
+                    if (inarow === 4) {
+                        if (player_one) {
+                            header.innerHTML = "Player 1 won!";
+                            confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                            });
+                            break;
+                        } else {
+                            header.innerHTML = "Player 2 won!";
+                            confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                            });
+                            break;
+                        }
+                    }
+                } else {
+                    inarow = 0;
+                }
+                i++;
+
+            }
+            let combinations = [[21, 15, 9, 3], [28, 22, 16, 10], [22, 16, 10, 4], [35, 29, 23, 17], [29, 23, 17, 11],  
+                                [23, 17, 11, 5], [36, 30, 24, 18], [30, 24, 18, 12], [24, 18, 12, 6], [37, 31, 25, 19],
+                                [31, 25, 19, 13], [38, 32, 26, 20], [3, 11, 19, 27], [2, 10, 18, 26], [10, 18, 26, 34],
+                                [1, 9, 17, 25], [9, 17, 25, 33], [17, 25, 33, 41], [0, 8, 16, 24], [8, 16, 24, 32],
+                                [16, 24, 32, 40], [7, 15, 23, 31], [15, 23, 31, 39], [14, 22, 30, 38],
+                                ];
+            /* checking winner in diagonal 1*/
+            combinations.forEach((a) => {
+                if (buttons[a[0]].style.backgroundColor === color_to_check &&
+                    buttons[a[1]].style.backgroundColor === color_to_check &&
+                    buttons[a[2]].style.backgroundColor === color_to_check &&
+                    buttons[a[3]].style.backgroundColor === color_to_check) {
+                        if (player_one) {
+                            header.innerHTML = "Player 1 won!";
+                            confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                            });
+                        } else {
+                            header.innerHTML = "Player 2 won!";
+                            confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                            });
+                        }
+
+                    }
+                });
+                
+
+            
+            
+
+            player_one = !player_one;
+            /*
+            if (player_one) {
+                button.style.backgroundColor = "blue";
+            } else {
+                button.style.backgroundColor = "red";
+            }
+            player_one = !player_one;
+            button.removeEventListener("click", f);
+            console.log(color_to_check);
+            console.log(idx);
+            */
+        };
+        button.addEventListener("click", f);
+
+        
+    }
+    let buttons = [];
+
+    for (let i = 0; i < 42; i++) {
+        let button_id = "b" + String(i);
+        let button = document.getElementById(button_id)
+        buttons.push(button);
+        make_event_handler(button, i, buttons);
+    }
+</script>
+</html>
