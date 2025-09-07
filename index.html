@@ -2,18 +2,25 @@
 <html>
 <style>
 	#welcome {
-        background-image: url("https://media1.tenor.com/m/gQl341H-w5EAAAAC/mizisua-mizi.gif");
-        margin: 100px;
-        padding: 100px;
-		background-size: cover;
-		background-position: 0px -300px;
+        background-image: url("https://64.media.tumblr.com/fc9a331afde5282d23255618ebeeb3be/3d52ab733f3e2ece-b9/s1280x1920/c1199200e1d512c21357183704d64ae215ebec43.gifv");
+        margin: 23px;
+        padding: 50px;
+		height: 20px;
+		background-position: -50px -70px;
+		background-size: center;
 	}
-	#intro {
-		font-size: 36px;
+	.intro {
+		font-family: 'Puffypuff', sans-serif;
+		display: flex;
+		font-size: 18px;
+		margin: 20px;
+        padding: 20px;
+		border: 4px double white;
         color: white;
         text-align: center;
 	}
 	.container{
+		font-family: 'Puffypuff', sans-serif;
 		display: block;
         flex-direction: row;
         justify-content: center;
@@ -22,15 +29,27 @@
 		text-align: center;
 	}
 	body {
-		background-image: url("https://i.pinimg.com/originals/46/5e/b9/465eb915ed1fa9eae64c7108f01775e1.gif")
+		cursor: url(https://cdn.cdnstep.com/vWzy2lZAWjP5S5Mi5qgI/4-1.thumb128.png), auto;
+		background-image: url("https://cdn.pixabay.com/animation/2024/07/23/19/52/19-52-56-478_512.gif")
 	}
-	a {
-		display: block;
-		color: cyan;
-		font-size: 25px;
+	a:link, a:visited {
+		font-family: 'Puffypuff', sans-serif;
+		background-color: pink;
+		color: white;
+		border: 4px double white;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 20px 25px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		transition: background .2s linear, transform .2s linear;
 	}
-	a:hover{
-		color: magenta;
+
+	a:hover, a:active {
+		cursor: url(https://cdn.cdnstep.com/vWzy2lZAWjP5S5Mi5qgI/18-1.thumb128.png), auto;
+  		background-color: palevioletred;
+		transition: background .2s linear, transform .2s linear;
 	}
 </style>
 <head>
@@ -38,14 +57,19 @@
 </head>
 <body>
 	<h1 id="welcome">&nbsp</h1>
-	<h1 id="intro">Hello! My name is Alice (˶˃ ᵕ ˂˶)</h1>
+	<div class="intro">
+		<img src="https://media.tenor.com/9dsIOG28XSwAAAAj/alien-stage.gif">
+		<h1>Welcome to my page! My name is Alice (˶˃ ᵕ ˂˶) I've been coding with html for a while. Do me a favor and check out all the websites I've made so far :) I promise they're very cool.</h1>
+		<img src="https://media.tenor.com/2BBl_QTZaNcAAAAj/mizi-alien-stage.gif">
+	</div>
 	<header>
 		<div class="container">
-			<h1>Here are all my websites</h1>
+			<h1>Click on these buttons:</h1>
 				<a href="connectfour.html">Connect Four Game</a>
                 <a href="cool.html">90's Website</a>
                 <a href="tictactoe.html">Tic Tac Toe</a>
 		</div>
 	</header>
+	<h1 id="welcome">&nbsp</h1>
 </body>
 </html>

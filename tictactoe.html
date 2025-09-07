@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html>
     <style>
+        #welcome {
+        font-size: 36px;
+        color: blue;
+        background-image: url("https://64.media.tumblr.com/4333811ad317c7d9cb35994d975bc257/471c36f30f7ce776-95/s540x810/5069610805e3eb4846045435f8a697129f56c844.gifv");
+        background-position: -100px -90px;
+        border: 4px groove red;
+        margin: 30px;
+        padding: 70px;
+        text-align: center;
+        }
+        #goodbye {
+        font-size: 36px;
+        color: red;
+        background-image: url("https://64.media.tumblr.com/d8f0e6091f0303e0e603ba0546604d74/1e1d6e0a49db3668-4e/s540x810/820c784b957465cace0740835b15f7d4f7abf0e2.gifv");
+        background-position: -100px -70px;
+        border: 4px groove blue;
+        margin: 30px;
+        padding: 70px;
+        text-align: center;
+        }
+        #explain {
+            font-size: 18px;
+            color:purple;
+            text-align: center;
+        }
         button {
+            cursor: url(https://cdn.cdnstep.com/5ScHUPPv8uRhyKn3GNFc/23.thumb128.png), auto;
             width: 50px;
             height: 50px;
             padding: 0px;
+            transition: background .2s linear, transform .2s linear;
+        }
+        button:hover {
+        background: white;
+        transition: background .2s linear, transform .2s linear;
+        transform: scale(1.2) rotate(0deg);
+        }
+        button:active {
+            background: plum;
+        }
+        body {
+            cursor: url(https://cdn.cdnstep.com/5ScHUPPv8uRhyKn3GNFc/23.thumb128.png), auto;
+            background-image: url("https://i.pinimg.com/originals/e5/89/95/e5899572ecace2b0895b36db7703a001.gif");
+            background-size: cover;
         }
         .nextto {
             display: inline;
@@ -14,7 +54,12 @@
             text-align: center;
         }
     </style>
+    <head>
+        <title>Tic Tac Toe</title>
+    </head>
     <body>
+        <h1 id="welcome">Welcome to Tic Tac Toe!</h1>
+        <h1 id="explain">Player One is blue and Player Two is red</h1>
         <div id="main">
             <div>
                 <button id="1">&nbsp;</button>
@@ -32,6 +77,8 @@
                 <button id="9">&nbsp;</button>
             </div>
         </div>
+        <h1 id="explain">First to get 3 of their own color in a row wins!</h1>
+        <h1 id="goodbye">Don't get too serious over this game..</h1>
     </body>
     <script>
         let button1 = document.getElementById("1");
